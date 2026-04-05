@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import "@adarsh_goswami/brand/dist/theme.css";
+@import "@adarsh_goswami/brand/dist/tailwind.config.css";
+
+html, body, #root {
+  height: 100%;
+}
+
+:root {
+  --navbar-height: 56px;
+  --breadcrumb-height: 44px;
+}
+
+/* DocsLayout hardcodes height: 100vh on its root.
+   The wrapper is sized to the exact remaining viewport space.
+   Override every element in between (Theme wrapper + DocsLayout root)
+   with height: 100% so it fills the wrapper instead of the viewport. */
+.docs-layout-wrapper {
+  height: calc(100dvh - var(--navbar-height) - var(--breadcrumb-height));
+}
+.docs-layout-wrapper > *,
+.docs-layout-wrapper > * > * {
+  height: 100% !important;
+  min-height: 0 !important;
+}
