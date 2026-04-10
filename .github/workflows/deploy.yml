@@ -73,7 +73,6 @@ jobs:
             'for f; do key="${f#dist/}"; aws s3 cp "$f" "s3://${{ secrets.S3_BUCKET }}/$key" --cache-control "public, max-age=60"; done' _ {} +
 
       - name: Invalidate CloudFront
-        if: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID != '' }}
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
