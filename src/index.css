@@ -13,13 +13,78 @@ html, body, #root {
 
 /* DocsLayout hardcodes height: 100vh on its root.
    The wrapper is sized to the exact remaining viewport space.
-   Override every element in between (Theme wrapper + DocsLayout root)
+   Override every element in between (max-width container + Theme + DocsLayout root)
    with height: 100% so it fills the wrapper instead of the viewport. */
 .docs-layout-wrapper {
   height: calc(100dvh - var(--navbar-height) - var(--breadcrumb-height));
 }
 .docs-layout-wrapper > *,
-.docs-layout-wrapper > * > * {
+.docs-layout-wrapper > * > *,
+.docs-layout-wrapper > * > * > * {
   height: 100% !important;
   min-height: 0 !important;
+}
+
+/* ── Hero dot grid ── */
+.hero-grid {
+  background-image: radial-gradient(circle, var(--border-soft) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Animated gradient text ── */
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text {
+  /* Uses only brand tokens — updates automatically when accent changes */
+  background: linear-gradient(
+    90deg,
+    var(--accent-bright),
+    var(--accent),
+    var(--accent-dim),
+    var(--accent),
+    var(--accent-bright)
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 5s ease infinite;
+}
+
+/* ── Marquee ── */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 30s linear infinite;
+}
+
+.marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 25s linear infinite;
+}
+
+/* ── Availability badge pulse ── */
+/* Derives from --success token — updates if the brand semantic color changes */
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--success) 40%, transparent); }
+  50%       { box-shadow: 0 0 0 5px color-mix(in srgb, var(--success) 0%, transparent); }
+}
+
+.availability-dot {
+  animation: pulse-green 2s ease-in-out infinite;
 }

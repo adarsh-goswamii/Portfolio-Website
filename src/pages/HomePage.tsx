@@ -10,7 +10,10 @@ function Section({ id, label, title, children }: {
 }) {
   return (
     <section id={id} className="py-24 border-t border-border-subtle first:border-t-0">
-      <p className="font-mono text-xs font-medium tracking-[0.12em] uppercase text-accent mb-2">{label}</p>
+      <div className="flex items-center gap-3 mb-3">
+        <p className="font-mono text-xs font-medium tracking-[0.12em] uppercase text-accent shrink-0">{label}</p>
+        <div className="h-px w-20" style={{ background: 'linear-gradient(to right, var(--accent-glow), transparent)' }} />
+      </div>
       <h2 className="font-display text-2xl font-bold text-text-primary mb-10">{title}</h2>
       {children}
     </section>
@@ -21,19 +24,35 @@ function Section({ id, label, title, children }: {
 function Hero() {
   return (
     <section className="relative overflow-hidden pt-24 pb-20">
-      {/* Glow */}
+      {/* Dot grid */}
+      <div className="hero-grid pointer-events-none absolute inset-0 opacity-40" />
+
+      {/* Orb 1 — main accent */}
       <div
         className="pointer-events-none absolute"
         style={{
           top: '-80px', left: '-120px',
-          width: '600px', height: '400px',
-          background: 'radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%)',
+          width: '700px', height: '500px',
+          background: 'radial-gradient(ellipse, var(--accent-glow) 0%, transparent 65%)',
+          filter: 'blur(30px)',
+        }}
+      />
+      {/* Orb 2 — cool violet, right side — uses --accent-subtle (8% accent, brand token) */}
+      <div
+        className="pointer-events-none absolute"
+        style={{
+          top: '60px', right: '-80px',
+          width: '420px', height: '420px',
+          background: 'radial-gradient(ellipse, var(--accent-subtle) 0%, transparent 70%)',
+          filter: 'blur(60px)',
         }}
       />
 
-      <p className="font-mono text-xs tracking-widest uppercase text-text-muted mb-6 flex items-center gap-3 before:content-[''] before:w-6 before:h-px before:bg-border-mid">
-        Full-stack engineer
-      </p>
+      {/* Availability badge */}
+      <div className="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full border border-border-soft bg-bg-surface/80 backdrop-blur-sm text-xs font-mono text-text-muted">
+        <span className="w-2 h-2 rounded-full availability-dot" style={{ backgroundColor: 'var(--success)' }} />
+        Available for new projects
+      </div>
 
       <h1
         className="font-display font-extrabold leading-none tracking-tighter mb-6"
@@ -41,15 +60,15 @@ function Hero() {
       >
         <span className="text-text-primary">Adarsh</span>
         <br />
-        <span className="text-accent">Goswami.</span>
+        <span className="gradient-text">Goswami.</span>
       </h1>
 
-      <p className="text-md text-text-secondary font-light max-w-[440px] leading-loose">
+      <p className="text-md text-text-secondary font-light max-w-[440px] leading-loose mb-10">
         I build tools, systems, and brands. Clean code, thoughtful design, shipped fast.
       </p>
 
       {/* CTAs */}
-      <div className="mt-10 flex flex-wrap items-center gap-4">
+      <div className="flex flex-wrap items-center gap-4 mb-14">
         <a
           href="#projects"
           className="inline-flex items-center px-5 py-2.5 text-sm font-body font-medium bg-accent text-accent-contrast rounded-md no-underline transition-colors duration-fast hover:bg-accent-bright shadow-accent"
@@ -68,13 +87,17 @@ function Hero() {
         </a>
       </div>
 
-      {/* Tech pills */}
-      <div className="mt-10 flex flex-wrap items-center gap-6 font-mono text-xs text-text-muted">
-        {['TypeScript', 'React', 'Node.js', 'Go', 'Tailwind'].map((t) => (
-          <span key={t} className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" />
-            {t}
-          </span>
+      {/* Stats */}
+      <div className="flex gap-10 border-t border-border-subtle pt-8">
+        {[
+          { n: '3+',  label: 'Years building'   },
+          { n: '10+', label: 'Projects shipped'  },
+          { n: '5+',  label: 'Open source pkgs'  },
+        ].map(({ n, label }) => (
+          <div key={label}>
+            <p className="font-display text-xl font-bold text-text-primary">{n}</p>
+            <p className="font-mono text-[11px] text-text-muted mt-0.5">{label}</p>
+          </div>
         ))}
       </div>
     </section>
@@ -85,11 +108,25 @@ function Hero() {
 function About() {
   return (
     <Section id="about" label="01 — About" title="About Me">
-      <div className="flex flex-col md:flex-row gap-10 items-start">
-        {/* Avatar placeholder */}
-        <div className="w-40 h-40 shrink-0 rounded-xl bg-bg-surface border border-border-subtle flex items-center justify-center shadow-md">
-          <span className="font-display text-4xl font-extrabold text-accent">AG</span>
+      <div className="flex flex-col md:flex-row gap-12 items-start">
+        {/* Glowing avatar */}
+        <div className="relative shrink-0">
+          <div
+            className="absolute -inset-4 rounded-2xl opacity-70 pointer-events-none"
+            style={{
+              background: 'radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 70%)',
+              filter: 'blur(20px)',
+            }}
+          />
+          <div className="relative w-40 h-40 rounded-2xl bg-bg-surface border border-border-subtle flex items-center justify-center overflow-hidden">
+            <div
+              className="absolute inset-0"
+              style={{ background: 'linear-gradient(135deg, var(--accent-glow) 0%, transparent 55%)' }}
+            />
+            <span className="font-display text-5xl font-extrabold text-accent relative z-10">AG</span>
+          </div>
         </div>
+
         <div className="max-w-[520px]">
           <p className="text-base text-text-secondary leading-loose mb-4">
             Hey, I'm Adarsh. I'm a full-stack engineer who cares about building things that are clean, performant, and designed with care.
@@ -111,24 +148,37 @@ function Projects() {
   return (
     <Section id="projects" label="02 — Work" title="Projects">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {projects.map((p) => (
+        {projects.map((p, idx) => (
           <Link
             key={p.slug}
             to={`/projects/${p.slug}`}
-            className="group bg-bg-surface border border-border-subtle rounded-xl p-6 no-underline transition-all duration-base hover:border-border-mid hover:-translate-y-0.5"
+            className="group relative bg-bg-surface border border-border-subtle rounded-xl p-6 no-underline transition-all duration-base hover:border-border-mid hover:-translate-y-1 overflow-hidden"
           >
-            <div className="w-9 h-9 rounded-md flex items-center justify-center mb-4 text-base border bg-[var(--accent-subtle)] border-[var(--accent-glow)]">
-              {p.icon}
-            </div>
-            <p className="font-display text-md font-semibold text-text-primary mb-2">
-              {p.docs.meta.title}
-            </p>
-            <p className="text-sm text-text-secondary leading-relaxed mb-4">
-              {p.docs.meta.description}
-            </p>
-            <span className="text-xs text-accent font-medium group-hover:text-accent-bright transition-colors duration-fast">
-              View docs &rarr;
+            {/* Inner glow on hover */}
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-base pointer-events-none"
+              style={{ background: 'radial-gradient(ellipse at top left, var(--accent-glow) 0%, transparent 60%)' }}
+            />
+
+            {/* Card number */}
+            <span className="absolute top-5 right-5 font-mono text-[10px] text-text-disabled">
+              {String(idx + 1).padStart(2, '0')}
             </span>
+
+            <div className="relative">
+              <div className="w-9 h-9 rounded-md flex items-center justify-center mb-4 text-base border bg-[var(--accent-subtle)] border-[var(--accent-glow)]">
+                {p.icon}
+              </div>
+              <p className="font-display text-md font-semibold text-text-primary mb-2">
+                {p.docs.meta.title}
+              </p>
+              <p className="text-sm text-text-secondary leading-relaxed mb-4">
+                {p.docs.meta.description}
+              </p>
+              <span className="text-xs text-accent font-medium group-hover:text-accent-bright transition-colors duration-fast">
+                View docs &rarr;
+              </span>
+            </div>
           </Link>
         ))}
       </div>
@@ -166,16 +216,31 @@ function Experience() {
     <Section id="experience" label="03 — Career" title="Experience">
       <div className="flex flex-col gap-0">
         {jobs.map((job, i) => (
-          <div
-            key={i}
-            className="relative pl-8 pb-10 last:pb-0 group"
-          >
-            {/* Timeline line */}
+          <div key={i} className="relative pl-8 pb-10 last:pb-0 group">
+            {/* Timeline line — gradient on first, subtle on rest */}
             {i < jobs.length - 1 && (
-              <div className="absolute left-[7px] top-[10px] bottom-0 w-px bg-border-soft" />
+              <div
+                className="absolute left-[7px] top-[10px] bottom-0 w-px"
+                style={{
+                  background: i === 0
+                    ? 'linear-gradient(to bottom, var(--accent), var(--border-soft) 50%, transparent)'
+                    : 'var(--border-soft)',
+                }}
+              />
             )}
+
             {/* Timeline dot */}
-            <div className="absolute left-0 top-[6px] w-[15px] h-[15px] rounded-full border-2 border-border-soft bg-bg-base group-first:border-accent group-first:bg-accent" />
+            <div
+              className="absolute left-0 top-[6px] w-[15px] h-[15px] rounded-full border-2"
+              style={i === 0 ? {
+                borderColor: 'var(--accent)',
+                backgroundColor: 'var(--accent)',
+                boxShadow: '0 0 12px var(--accent)',
+              } : {
+                borderColor: 'var(--border-soft)',
+                backgroundColor: 'var(--bg-base)',
+              }}
+            />
 
             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
               <div>
@@ -206,24 +271,50 @@ function Experience() {
 
 /* ── Skills ── */
 function Skills() {
-  const skills = [
-    'TypeScript', 'JavaScript', 'React', 'Node.js', 'Go',
-    'Python', 'Tailwind CSS', 'Radix UI', 'PostgreSQL', 'Redis',
-    'Docker', 'Git', 'Vite', 'Next.js', 'Express',
-    'REST APIs', 'GraphQL', 'CI/CD', 'Linux', 'Figma',
-  ]
+  const row1 = ['TypeScript', 'JavaScript', 'React', 'Node.js', 'Go', 'Python', 'Tailwind CSS', 'Radix UI', 'PostgreSQL', 'Redis']
+  const row2 = ['Docker', 'Git', 'Vite', 'Next.js', 'Express', 'REST APIs', 'GraphQL', 'CI/CD', 'Linux', 'Figma']
 
   return (
     <Section id="skills" label="04 — Stack" title="Skills">
-      <div className="flex flex-wrap gap-2">
-        {skills.map((s) => (
-          <span
-            key={s}
-            className="font-mono text-xs bg-bg-overlay border border-border-subtle rounded-sm px-2.5 py-1 text-text-muted"
-          >
-            {s}
-          </span>
-        ))}
+      <div className="relative overflow-hidden">
+        {/* Row 1 — scrolls left */}
+        <div className="overflow-hidden mb-3">
+          <div className="marquee-left gap-3">
+            {[...row1, ...row1].map((s, i) => (
+              <span
+                key={i}
+                className="font-mono text-xs bg-bg-overlay border border-border-subtle rounded px-3 py-1.5 text-text-secondary whitespace-nowrap mr-3"
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Row 2 — scrolls right */}
+        <div className="overflow-hidden">
+          <div className="marquee-right gap-3">
+            {[...row2, ...row2].map((s, i) => (
+              <span
+                key={i}
+                className="font-mono text-xs bg-bg-raised border border-border-soft rounded px-3 py-1.5 text-text-muted whitespace-nowrap mr-3"
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Edge fade — left */}
+        <div
+          className="absolute inset-y-0 left-0 w-16 pointer-events-none"
+          style={{ background: 'linear-gradient(to right, var(--bg-base), transparent)' }}
+        />
+        {/* Edge fade — right */}
+        <div
+          className="absolute inset-y-0 right-0 w-16 pointer-events-none"
+          style={{ background: 'linear-gradient(to left, var(--bg-base), transparent)' }}
+        />
       </div>
     </Section>
   )
@@ -248,17 +339,24 @@ function Contact() {
 
   return (
     <Section id="contact" label="05 — Connect" title="Get in Touch">
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-[520px]">
+      <p className="text-text-secondary max-w-md leading-loose mb-8">
+        I'm always open to interesting projects and conversations. Drop me a line anywhere below.
+      </p>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-[480px]">
         {links.map((l) => (
           <a
             key={l.label}
             href={l.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-bg-surface border border-border-subtle rounded-xl p-6 flex flex-col items-center gap-3 no-underline text-text-muted transition-all duration-fast hover:text-accent-bright hover:border-[var(--accent-border)]"
+            className="group relative bg-bg-surface border border-border-subtle rounded-xl p-5 flex flex-col items-center gap-3 no-underline text-text-muted transition-all duration-fast hover:text-accent hover:border-border-mid hover:-translate-y-0.5 overflow-hidden"
           >
-            {l.icon}
-            <span className="text-sm text-text-secondary">{l.label}</span>
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-base pointer-events-none"
+              style={{ background: 'radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 70%)' }}
+            />
+            <div className="relative">{l.icon}</div>
+            <span className="relative text-xs text-text-secondary group-hover:text-accent transition-colors duration-fast">{l.label}</span>
           </a>
         ))}
       </div>

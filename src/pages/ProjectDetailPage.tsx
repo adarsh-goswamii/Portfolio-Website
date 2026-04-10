@@ -31,29 +31,33 @@ export default function ProjectDetailPage() {
       style={{ height: 'calc(100dvh - var(--navbar-height))' }}
     >
       {/* Breadcrumb — height must match --breadcrumb-height (44px) */}
-      <div className="shrink-0 border-b border-border-subtle bg-bg-base px-6 flex items-center" style={{ height: 'var(--breadcrumb-height)' }}>
-        <div className="flex items-center gap-2 text-sm">
-          <Link to="/" className="text-text-muted no-underline hover:text-text-secondary transition-colors duration-fast">
-            Home
-          </Link>
-          <span className="text-text-disabled">/</span>
-          <Link to="/#projects" className="text-text-muted no-underline hover:text-text-secondary transition-colors duration-fast">
-            Projects
-          </Link>
-          <span className="text-text-disabled">/</span>
-          <span className="text-text-primary font-medium">{project.docs.meta.title}</span>
+      <div className="shrink-0 border-b border-border-subtle bg-bg-base" style={{ height: 'var(--breadcrumb-height)' }}>
+        <div className="max-w-[1100px] mx-auto px-6 h-full flex items-center">
+          <div className="flex items-center gap-2 text-sm">
+            <Link to="/" className="text-text-muted no-underline hover:text-text-secondary transition-colors duration-fast">
+              Home
+            </Link>
+            <span className="text-text-disabled">/</span>
+            <Link to="/#projects" className="text-text-muted no-underline hover:text-text-secondary transition-colors duration-fast">
+              Projects
+            </Link>
+            <span className="text-text-disabled">/</span>
+            <span className="text-text-primary font-medium">{project.docs.meta.title}</span>
+          </div>
         </div>
       </div>
 
-      {/* DocsLayout */}
+      {/* DocsLayout — constrained to same max-width as the rest of the app */}
       <div className="docs-layout-wrapper">
-        <Theme appearance="dark" accentColor="violet" grayColor="slate">
-          <DocsLayout
-            data={project.docs}
-            activeSlug={activeSlug}
-            onSlugChange={setActiveSlug}
-          />
-        </Theme>
+        <div className="max-w-[1100px] mx-auto">
+          <Theme appearance="dark" accentColor="violet" grayColor="slate">
+            <DocsLayout
+              data={project.docs}
+              activeSlug={activeSlug}
+              onSlugChange={setActiveSlug}
+            />
+          </Theme>
+        </div>
       </div>
     </div>
   )
