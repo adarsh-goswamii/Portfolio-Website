@@ -1,6 +1,7 @@
 @import "tailwindcss";
-@import "@adarsh_goswami/brand/dist/theme.css";
 @import "@adarsh_goswami/brand/dist/tailwind.config.css";
+@import "@radix-ui/themes/styles.css";
+@import "@adarsh_goswami/brand/dist/theme.css";
 
 html, body, #root {
   height: 100%;

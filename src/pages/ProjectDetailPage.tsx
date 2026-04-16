@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Theme } from '@radix-ui/themes'
-import '@radix-ui/themes/styles.css'
-import { DocsLayout } from '@adarsh_goswami/brand'
+import { DocsLayout, useTheme } from '@adarsh_goswami/brand'
 import { getProject } from '../data/projects'
 
 export default function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>()
+  const { theme } = useTheme()
   const project = slug ? getProject(slug) : undefined
   const [activeSlug, setActiveSlug] = useState(() => {
     const firstSection = project?.docs.navigation[0]
@@ -50,7 +50,7 @@ export default function ProjectDetailPage() {
       {/* DocsLayout — constrained to same max-width as the rest of the app */}
       <div className="docs-layout-wrapper">
         <div className="max-w-[1100px] mx-auto">
-          <Theme appearance="dark" accentColor="violet" grayColor="slate">
+          <Theme appearance={theme}>
             <DocsLayout
               data={project.docs}
               activeSlug={activeSlug}

@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import { ThemeToggle } from '@adarsh_goswami/brand'
 
 const sections = [
   { label: 'About', href: '#about' },
@@ -52,6 +53,8 @@ export default function Navbar() {
             &larr; Home
           </Link>
         )}
+
+        <ThemeToggle />
 
         {/* Resume CTA */}
         <a
