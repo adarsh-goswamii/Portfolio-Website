@@ -54,19 +54,22 @@ export default function Navbar() {
           </Link>
         )}
 
-        <ThemeToggle />
+        {/* Right-side group — toggle + resume with breathing room */}
+        <div className="flex items-center gap-3 flex-shrink-0">
+          <ThemeToggle />
 
-        {/* Resume CTA */}
-        <a
-          href="/resume.pdf"
-          download
-          className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 text-xs font-body font-medium bg-transparent border border-border-soft text-text-secondary rounded-md no-underline transition-colors duration-fast hover:text-text-primary hover:border-border-mid"
-        >
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M6 2v6M3.5 5.5 6 8l2.5-2.5M2 10h8" />
-          </svg>
-          Resume
-        </a>
+          {/* Resume CTA */}
+          <a
+            href="/resume.pdf"
+            download
+            className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 text-xs font-body font-medium bg-transparent border border-border-soft text-text-secondary rounded-md no-underline transition-colors duration-fast hover:text-text-primary hover:border-border-mid"
+          >
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 2v6M3.5 5.5 6 8l2.5-2.5M2 10h8" />
+            </svg>
+            Resume
+          </a>
+        </div>
       </div>
     </nav>
   )
