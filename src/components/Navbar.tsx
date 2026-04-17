@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { ThemeToggle } from '@adarsh_goswami/brand'
+import { ThemeToggle, AgWordmark } from '@adarsh_goswami/brand'
 
 const sections = [
   { label: 'About', href: '#about' },
@@ -17,16 +17,8 @@ export default function Navbar() {
     <nav className="sticky top-0 z-[200] border-b border-border-subtle bg-bg-base/80 backdrop-blur-[12px]">
       <div className="max-w-[1100px] mx-auto px-6 h-14 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5 no-underline">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
-            <path d="M4 18 L9 6 L14 18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-accent" />
-            <line x1="6" y1="14" x2="12" y2="14" strokeWidth="2" strokeLinecap="round" className="stroke-accent" />
-            <path d="M16 10C16 8 17.5 7 19 7C20.5 7 22 8 22 10L22 12L19.5 12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-text-primary" />
-            <path d="M16 10C16 12 16 14 16 15C16 16.5 17.5 17 19 17C20.5 17 22 16.5 22 15L22 12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-text-primary" />
-          </svg>
-          <span className="font-display font-bold text-md text-text-primary">
-            Adarsh<span className="text-accent">.</span>
-          </span>
+        <Link to="/" className="no-underline">
+          <AgWordmark />
         </Link>
 
         {/* Nav links */}
