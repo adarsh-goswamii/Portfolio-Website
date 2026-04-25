@@ -53,9 +53,9 @@ Each project detail page uses the \`DocsLayout\` organism from \`@adarsh_goswami
 
 | Resource | URL |
 |---|---|
-| **GitHub** | github.com/adarsh-goswamii/portfolio-website |
-| **Live** | adarshgoswami.dev |
-| **Brand package** | npm: @adarsh_goswami/brand |
+| **GitHub** | [github.com/adarsh-goswamii/portfolio-website](https://github.com/adarsh-goswamii/portfolio-website) |
+| **Live** | [adarshgoswami.org](https://adarshgoswami.org) |
+| **Brand package** | [npmjs.com/package/@adarsh_goswami/brand](https://www.npmjs.com/package/@adarsh_goswami/brand) |
 
 ## Tech stack
 
