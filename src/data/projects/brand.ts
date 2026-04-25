@@ -79,7 +79,7 @@ export const brandProject: DocsConfig = {
 | Resource | URL |
 |---|---|
 | **npm** | [https://www.npmjs.com/package/@adarsh_goswami/brand](https://www.npmjs.com/package/@adarsh_goswami/brand) |
-| **GitHub** | [github.com/adarsh-goswamii/brand](https://github.com/adarsh-goswamii/brand) |
+| **GitHub** | [github.com/adarsh-goswamii/UI-library](https://github.com/adarsh-goswamii/UI-library) |
 | **Portfolio** | [Theme page — see the design system live](/theme) |
 
 ## Tech stack
