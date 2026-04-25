@@ -1,4 +1,4 @@
-import type { About, Experience, Skill, SocialLink, ProjectCard } from '../types/api'
+import type { About, Experience, Skill, SocialLink, ProjectCard, ProjectDetail } from '../types/api'
 
 const BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8000'
 
@@ -14,4 +14,5 @@ export const api = {
   skills:      () => get<Skill[]>('/api/skills'),
   socialLinks: () => get<SocialLink[]>('/api/social-links'),
   projects:    () => get<ProjectCard[]>('/api/projects'),
+  project:     (slug: string) => get<ProjectDetail>(`/api/projects/${slug}`),
 }
