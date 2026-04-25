@@ -5,7 +5,7 @@
     "": {
       "name": "portfolio-website",
       "dependencies": {
-        "@adarsh_goswami/brand": "0.1.12-dev",
+        "@adarsh_goswami/design": "0.1.0",
         "@radix-ui/themes": "^3.3.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
@@ -29,7 +29,7 @@
     },
   },
   "packages": {
-    "@adarsh_goswami/brand": ["@adarsh_goswami/brand@0.1.12-dev", "", { "dependencies": { "react-markdown": "^10.1.0", "rehype-highlight": "^7.0.2", "remark-gfm": "^4.0.1" }, "peerDependencies": { "@radix-ui/themes": ">=3.0.0", "react": ">=18.0.0", "react-dom": ">=18.0.0", "tailwindcss": "^4.2.2" } }, "sha512-qozfUWfdknh0lvZrU6eSb4Dlvq3KLxSLd5b4DC2bFSBHfRKNksWvOugkKXDfG5uAR8OWjRCGYNMpzXn+jHl0/Q=="],
+    "@adarsh_goswami/design": ["@adarsh_goswami/design@0.1.0", "", { "dependencies": { "react-markdown": "^10.1.0", "rehype-highlight": "^7.0.2", "remark-gfm": "^4.0.1" }, "peerDependencies": { "@radix-ui/themes": ">=3.0.0", "react": ">=18.0.0", "react-dom": ">=18.0.0", "tailwindcss": "^4.2.2" } }, "sha512-oG2WbkB7iRnos9J9u4QHIbyIBuPsF2/Yk/kUD6IpgR4hZU4mRDxezkL4lWbXlx7VoaR/re4qZACfWqSg/yySQg=="],
 
     "@babel/code-frame": ["@babel/code-frame@7.29.0", "", { "dependencies": { "@babel/helper-validator-identifier": "^7.28.5", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-9NhCeYjq9+3uxgdtp20LSiJXJvN0FeCtNGpJxuMFZ1Kv3cWUNb6DOhJwUvcVCzKGR66cw4njwM6hrJLqgOwbcw=="],
 

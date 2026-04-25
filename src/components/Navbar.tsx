@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { ThemeToggle, AgWordmark } from '@adarsh_goswami/brand'
+import { ThemeToggle, AgWordmark } from '@adarsh_goswami/design'
 
 const sections = [
   { label: 'About', href: '#about' },

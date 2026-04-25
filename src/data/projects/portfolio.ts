@@ -1,4 +1,4 @@
-import type { DocsConfig } from '@adarsh_goswami/brand'
+import type { DocsConfig } from '@adarsh_goswami/design'
 
 export const portfolioProject: DocsConfig = {
   meta: {
@@ -34,13 +34,13 @@ export const portfolioProject: DocsConfig = {
 
 The personal portfolio website for Adarsh Goswami. A single-page scroll site with a dedicated project detail route per project.
 
-Each project detail page uses the \`DocsLayout\` organism from \`@adarsh_goswami/brand\` to render structured documentation — PRDs, ADRs, usage guides — in a consistent, branded layout.
+Each project detail page uses the \`DocsLayout\` organism from \`@adarsh_goswami/design\` to render structured documentation — PRDs, ADRs, usage guides — in a consistent, branded layout.
 
 ## Key decisions
 
 - **Self-contained** — all content lives in the codebase, no external CMS
 - **DocsLayout-powered** — every project gets a full docs experience
-- **Brand-first** — everything flows through \`@adarsh_goswami/brand\` tokens
+- **Brand-first** — everything flows through \`@adarsh_goswami/design\` tokens
 - **Zero-friction maintenance** — adding a project = adding a folder
       `,
     },
@@ -55,12 +55,12 @@ Each project detail page uses the \`DocsLayout\` organism from \`@adarsh_goswami
 |---|---|
 | **GitHub** | [github.com/adarsh-goswamii/portfolio-website](https://github.com/adarsh-goswamii/portfolio-website) |
 | **Live** | [adarshgoswami.org](https://adarshgoswami.org) |
-| **Brand package** | [npmjs.com/package/@adarsh_goswami/brand](https://www.npmjs.com/package/@adarsh_goswami/brand) |
+| **Brand package** | [npmjs.com/package/@adarsh_goswami/design](https://www.npmjs.com/package/@adarsh_goswami/design) |
 
 ## Tech stack
 
 - **Framework:** React + Vite
-- **Styling:** Tailwind CSS v4 + @adarsh_goswami/brand tokens
+- **Styling:** Tailwind CSS v4 + @adarsh_goswami/design tokens
 - **Components:** Radix UI Themes (via brand package)
 - **Routing:** React Router v7
 - **Types:** TypeScript
@@ -83,14 +83,14 @@ There's also no standard place to surface project documentation. PRDs and ADRs l
 
 ## Solution
 
-A clean public surface that links to rich, browsable project docs — powered by the same \`DocsLayout\` already built into \`@adarsh_goswami/brand\`.
+A clean public surface that links to rich, browsable project docs — powered by the same \`DocsLayout\` already built into \`@adarsh_goswami/design\`.
 
 ## Goals
 
 - Present work in a clean, professional, distinctly branded way
 - Give each project a dedicated docs experience via \`DocsLayout\`
 - Make adding a new project zero-friction — drop a file, it appears
-- Dogfood \`@adarsh_goswami/brand\` as a real production consumer
+- Dogfood \`@adarsh_goswami/design\` as a real production consumer
 - Resume download available from the hero section
 
 ## In scope — v1
@@ -118,7 +118,7 @@ A clean public surface that links to rich, browsable project docs — powered by
 
 ## Context
 
-Need to choose a framework for a portfolio site that consumes \`@adarsh_goswami/brand\` (a React component library with Radix UI and Tailwind).
+Need to choose a framework for a portfolio site that consumes \`@adarsh_goswami/design\` (a React component library with Radix UI and Tailwind).
 
 ## Decision
 

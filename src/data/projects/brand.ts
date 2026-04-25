@@ -1,8 +1,8 @@
-import type { DocsConfig } from '@adarsh_goswami/brand'
+import type { DocsConfig } from '@adarsh_goswami/design'
 
 export const brandProject: DocsConfig = {
   meta: {
-    title: '@adarsh_goswami/brand',
+    title: '@adarsh_goswami/design',
     description: 'Single source of truth for personal brand — pre-themed Radix UI components, CSS tokens, and Tailwind preset.',
     version: 'v0.1.3-dev',
   },
@@ -49,9 +49,9 @@ export const brandProject: DocsConfig = {
       type: 'guide',
       lastUpdated: 'April 2026',
       content: `
-## What is @adarsh_goswami/brand?
+## What is @adarsh_goswami/design?
 
-\`@adarsh_goswami/brand\` is the **single source of truth** for Adarsh Goswami's personal brand. It ships pre-themed Radix UI components with the AG brand applied — consuming apps install it, import components, and get fully branded UI out of the box.
+\`@adarsh_goswami/design\` is the **single source of truth** for Adarsh Goswami's personal brand. It ships pre-themed Radix UI components with the AG brand applied — consuming apps install it, import components, and get fully branded UI out of the box.
 
 > **North star:** consuming apps assemble UIs, this package makes all design decisions.
 
@@ -78,7 +78,7 @@ export const brandProject: DocsConfig = {
 
 | Resource | URL |
 |---|---|
-| **npm** | [https://www.npmjs.com/package/@adarsh_goswami/brand](https://www.npmjs.com/package/@adarsh_goswami/brand) |
+| **npm** | [https://www.npmjs.com/package/@adarsh_goswami/design](https://www.npmjs.com/package/@adarsh_goswami/design) |
 | **GitHub** | [github.com/adarsh-goswamii/UI-library](https://github.com/adarsh-goswamii/UI-library) |
 | **Portfolio** | [Theme page — see the design system live](/theme) |
 
@@ -92,7 +92,7 @@ export const brandProject: DocsConfig = {
       `,
     },
     prd: {
-      title: 'PRD — @adarsh_goswami/brand',
+      title: 'PRD — @adarsh_goswami/design',
       type: 'prd',
       lastUpdated: 'April 2026',
       content: `
@@ -198,7 +198,7 @@ Should React be bundled inside the package or declared as a peer dependency?
 
 ## Decision
 
-React is a peer dependency. It must never be bundled inside \`@adarsh_goswami/brand\`.
+React is a peer dependency. It must never be bundled inside \`@adarsh_goswami/design\`.
 
 ## Rationale
 
@@ -231,7 +231,7 @@ resolve: {
 ## Install via npm
 
 \`\`\`bash
-npm install @adarsh_goswami/brand
+npm install @adarsh_goswami/design
 \`\`\`
 
 ## Required peer dependencies
@@ -246,7 +246,7 @@ npm install react react-dom @radix-ui/themes tailwindcss
 
 \`\`\`ts
 // main.tsx
-import '@adarsh_goswami/brand/dist/theme.css'
+import '@adarsh_goswami/design/dist/theme.css'
 \`\`\`
 
 ### 2. Configure Tailwind
@@ -254,8 +254,8 @@ import '@adarsh_goswami/brand/dist/theme.css'
 \`\`\`css
 /* index.css */
 @import "tailwindcss";
-@import "@adarsh_goswami/brand/dist/theme.css";
-@import "@adarsh_goswami/brand/dist/tailwind.config.css";
+@import "@adarsh_goswami/design/dist/theme.css";
+@import "@adarsh_goswami/design/dist/tailwind.config.css";
 \`\`\`
 
 ### 3. Wrap with Radix Theme
@@ -321,8 +321,8 @@ The brand package exports pre-themed Radix UI components. Each component wraps a
 ### Usage pattern
 
 \`\`\`tsx
-import { DocsLayout } from '@adarsh_goswami/brand'
-import type { DocsConfig } from '@adarsh_goswami/brand'
+import { DocsLayout } from '@adarsh_goswami/design'
+import type { DocsConfig } from '@adarsh_goswami/design'
 
 const config: DocsConfig = { /* ... */ }
 
@@ -344,7 +344,7 @@ const config: DocsConfig = { /* ... */ }
 A full-page documentation layout component with a sidebar nav and markdown content renderer.
 
 \`\`\`tsx
-import { DocsLayout } from '@adarsh_goswami/brand'
+import { DocsLayout } from '@adarsh_goswami/design'
 
 <DocsLayout
   data={docsConfig}

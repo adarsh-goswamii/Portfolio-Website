@@ -1,4 +1,4 @@
-import { Footer as BrandFooter } from '@adarsh_goswami/brand'
+import { Footer as BrandFooter } from '@adarsh_goswami/design'
 
 export default function Footer() {
   return (

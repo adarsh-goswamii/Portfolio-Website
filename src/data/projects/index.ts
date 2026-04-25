@@ -1,4 +1,4 @@
-import type { DocsConfig } from '@adarsh_goswami/brand'
+import type { DocsConfig } from '@adarsh_goswami/design'
 import { brandProject } from './brand'
 import { portfolioProject } from './portfolio'
 

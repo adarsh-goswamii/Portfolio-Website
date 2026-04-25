@@ -1,10 +1,10 @@
 ---
 name: brand-review
-description: Audits a frontend project for compliance with @adarsh_goswami/brand. Fixes any hardcoded style values that have brand token equivalents, and lists values with no token coverage as vulnerabilities requiring a human decision. Use when reviewing or cleaning up styling in any project that uses @adarsh_goswami/brand.
+description: Audits a frontend project for compliance with @adarsh_goswami/design. Fixes any hardcoded style values that have brand token equivalents, and lists values with no token coverage as vulnerabilities requiring a human decision. Use when reviewing or cleaning up styling in any project that uses @adarsh_goswami/design.
 disable-model-invocation: true
 ---
 
-You are reviewing a frontend project for compliance with the `@adarsh_goswami/brand` design system. Your job is to:
+You are reviewing a frontend project for compliance with the `@adarsh_goswami/design` design system. Your job is to:
 1. Audit all source files for hardcoded style values that should use brand tokens
 2. Fix every violation that has a brand token equivalent
 3. List anything that has NO brand equivalent as a **vulnerability** requiring a human decision
@@ -13,9 +13,9 @@ You are reviewing a frontend project for compliance with the `@adarsh_goswami/br
 
 ## Step 1 — Locate the brand package
 
-Find `node_modules/@adarsh_goswami/brand/dist/theme.css` and `tailwind.config.css` in the current project. Read both files to build your authoritative token reference for this audit.
+Find `node_modules/@adarsh_goswami/design/dist/theme.css` and `tailwind.config.css` in the current project. Read both files to build your authoritative token reference for this audit.
 
-If the package is not installed, stop and report: "❌ `@adarsh_goswami/brand` is not installed. Run `bun add @adarsh_goswami/brand` first."
+If the package is not installed, stop and report: "❌ `@adarsh_goswami/design` is not installed. Run `bun add @adarsh_goswami/design` first."
 
 ---
 
@@ -190,7 +190,7 @@ After all fixes are applied, print:
 ### ⚠️ Vulnerabilities (N items — no brand token exists)
 - `src/path/file.tsx` line 61: `background: '#0D0C1A'`
   → No token. Reason: glow logo card specific background, dark-first system has no equivalent.
-  → Options: (a) add --bg-glow token to @adarsh_goswami/brand, (b) keep as intentional one-off, (c) remove
+  → Options: (a) add --bg-glow token to @adarsh_goswami/design, (b) keep as intentional one-off, (c) remove
 
 ### 📋 Summary
 - Files scanned: N

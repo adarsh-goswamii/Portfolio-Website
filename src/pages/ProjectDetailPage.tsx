@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Theme } from '@radix-ui/themes'
-import { DocsLayout, useTheme } from '@adarsh_goswami/brand'
-import type { DocsConfig } from '@adarsh_goswami/brand'
+import { DocsLayout, useTheme } from '@adarsh_goswami/design'
+import type { DocsConfig } from '@adarsh_goswami/design'
 import { api } from '../lib/api'
 import type { ProjectDetail } from '../types/api'
 
