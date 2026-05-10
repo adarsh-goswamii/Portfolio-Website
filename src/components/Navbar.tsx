@@ -37,18 +37,17 @@ export default function Navbar() {
           </ul>
         )}
 
-        {!isHome && (
-          <Link
-            to="/"
-            className="text-sm text-text-secondary no-underline transition-colors duration-fast hover:text-text-primary"
-          >
-            &larr; Home
-          </Link>
-        )}
-
-        {/* Right-side group — toggle + resume with breathing room */}
+{/* Right-side group — toggle + blog + resume with breathing room */}
         <div className="flex items-center gap-3 flex-shrink-0">
           <ThemeToggle />
+
+          <Link
+            to="/blog"
+            className="hidden sm:inline-flex text-sm no-underline transition-colors duration-fast hover:text-text-primary"
+            style={{ color: 'var(--text-secondary)' }}
+          >
+            Blog
+          </Link>
 
           {/* Resume CTA */}
           <a

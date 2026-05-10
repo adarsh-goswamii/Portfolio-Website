@@ -46,3 +46,42 @@ export interface ProjectCard {
   tags: string[]
   sort_order: number
 }
+
+export interface DocumentContent {
+  markdown: string
+  last_updated: string
+  nav_slug: string
+  nav_section_id: string
+  nav_section_label: string
+  nav_label: string
+  nav_parent_slug: string | null
+}
+
+export interface ProjectDocument {
+  id: string
+  type: string
+  title: string
+  content: DocumentContent
+  status: string
+  sort_order: number
+}
+
+export interface ProjectDetail extends ProjectCard {
+  documents: ProjectDocument[]
+}
+
+export interface BlogPost {
+  id: string
+  slug: string
+  title: string
+  date: string
+  tags: string[]
+  summary: string | null
+  reading_time: number | null
+  created_at: string
+  created_by: string | null
+}
+
+export interface BlogPostDetail extends BlogPost {
+  content: string
+}
