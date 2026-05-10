@@ -69,3 +69,19 @@ export interface ProjectDocument {
 export interface ProjectDetail extends ProjectCard {
   documents: ProjectDocument[]
 }
+
+export interface BlogPost {
+  id: string
+  slug: string
+  title: string
+  date: string
+  tags: string[]
+  summary: string | null
+  reading_time: number | null
+  created_at: string
+  created_by: string | null
+}
+
+export interface BlogPostDetail extends BlogPost {
+  content: string
+}
